@@ -1,0 +1,35 @@
+<% content_for :functional_nav do%>
+<li><%= link_to 'Add', new_song_path %></li>
+<% end %>
+<%= currently_at 'Songs'%>
+
+
+<h1>Listing Songs</h1>
+
+<table id="songs" class="display">
+
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Rank</th>
+      <th>Artist</th>
+      <th>Name</th>
+      <th>Artis_Song</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.year %></td>
+        <td><%= link_to(song.rank, song) %></td>
+        <td><%= song.artist %></td>
+        <td><%= song.name %></td>
+        <td><%= song.artist.downcase + " - " + song.name.downcase + " hd" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
